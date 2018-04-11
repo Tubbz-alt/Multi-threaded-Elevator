@@ -32,8 +32,7 @@ void scheduler_init() {
 
 
 void passenger_request(int passenger, int from_floor, int to_floor, 
-											 void (*enter)(int, int), 
-											 void(*exit)(int, int)) {	
+		       void (*enter)(int, int), void(*exit)(int, int)) {	
 	int dif = 999999;
 	int min = -1;
 	while(min == -1) {
@@ -66,8 +65,8 @@ void passenger_request(int passenger, int from_floor, int to_floor,
 }
 
 void elevator_ready(int elevator, int at_floor, 
-										void(*move_direction)(int, int), 
-										void(*door_open)(int), void(*door_close)(int)) {
+		    void(*move_direction)(int, int), 
+		    void(*door_open)(int), void(*door_close)(int)) {
 	if(E[elevator].dest == at_floor) {
 		door_open(elevator);
 		E[elevator].state = ELEVATOR_OPEN;
